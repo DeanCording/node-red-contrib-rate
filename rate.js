@@ -21,7 +21,6 @@
  **/
 
 const util = require('util');
-isBuffer = require('is-buffer');
 
 module.exports = function(RED) {
     "use strict";

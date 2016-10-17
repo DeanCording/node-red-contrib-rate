@@ -23,7 +23,7 @@
   },
   "node-red": {
     "nodes": {
-      "md5": "rate.js"
+      "rate": "rate.js"
     }
   }
 }
