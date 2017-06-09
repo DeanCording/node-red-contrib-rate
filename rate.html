@@ -7,9 +7,10 @@
 	    inputField: {value: "payload"},
             inputFieldType: {value: "msg"},
             outputField: {value: "rate"},
-            outputFieldType: {value: "msg"}
-            timestampField: {value: "rate"},
-            timestampFieldType: {value: "msg"}
+            outputFieldType: {value: "msg"},
+            timestampField: {value: "timestamp"},
+            timestampFieldType: {value: "msg"},
+            ratePeriod: {value: 1000}
         },
         inputs:1,
         outputs:1,
@@ -52,18 +53,18 @@
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
     <div class="form-row">
-        <label for="node-input-inputField"><i class="fa fa-edit"></i> Input Property</label>
+        <label for="node-input-inputField"><i class="fa fa-edit"></i> Input</label>
         <input type="text" id="node-input-inputField" placeholder="Input Property" style="width:250px;">
         <input type="hidden" id="node-input-inputFieldType">
     </div>
     <div class="form-row">
-        <label for="node-input-outputField"><i class="fa fa-edit"></i> Rate Property</label>
+        <label for="node-input-outputField"><i class="fa fa-edit"></i> Rate</label>
         <input type="text" id="node-input-outputField" placeholder="Property to store rate" style="width:250px;">
         <input type="hidden" id="node-input-outputFieldType">
     </div>
     <div class="form-row">
-        <label for="node-input-timestampField"><i class="fa fa-edit"></i> Timestamp Property</label>
-        <input type="text" id="node-input-outputField" placeholder="Property with timestamp" style="width:250px;">
+        <label for="node-input-timestampField"><i class="fa fa-edit"></i> Timestamp</label>
+        <input type="text" id="node-input-timestampField" placeholder="Property with timestamp" style="width:250px;">
         <input type="hidden" id="node-input-timestampFieldType">
     </div>
     <div class="form-row">

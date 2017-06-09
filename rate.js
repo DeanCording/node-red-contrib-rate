@@ -31,7 +31,7 @@ module.exports = function(RED) {
 
         node.name = n.name;
         node.inputField = n.inputField || "payload";
-        node.outputFieldType = n.inputFieldType || "msg";
+        node.inputFieldType = n.inputFieldType || "msg";
         node.outputField = n.outputField  || "rate";
         node.outputFieldType = n.outputFieldType || "msg";
         node.timestampField = n.timestampField || "timestamp";
@@ -50,7 +50,7 @@ module.exports = function(RED) {
 
             var previous = node.previousValues[topic];
 
-            if (previous == "undefined") {
+            if (previous === undefined) {
                 node.previousValues[topic] = {};
             } else {
 
