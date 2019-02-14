@@ -35,16 +35,22 @@ module.exports = function(RED) {
         node.outputField = n.outputField  || "rate";
         node.outputFieldType = n.outputFieldType || "msg";
         node.timestampField = n.timestampField || "timestamp";
-        node.timestampFieldType = n.timestampFieldType || "msg";
+        node.timestampFieldType = n.timestampFieldType || "now";
         node.ratePeriod = n.ratePeriod || 1000;  // Rate period in timestamp units
 
         node.previousValues = {};
 
         node.on("input", function(msg) {
 
-            var timestamp = RED.util.evaluateNodeProperty(node.timestampField, node.timestampFieldType, node, msg);
-
-            var currentValue = RED.util.evaluateNodeProperty(node.inputField, node.inputFieldType, node, msg);;
+            var timestamp;
+            
+            if (node.timestampFieldType == "now") {
+                timestamp = Date.now();
+            } else {
+                timestamp = RED.util.evaluateNodeProperty(node.timestampField, node.timestampFieldType, node, msg);
+            }
+            
+            var currentValue = RED.util.evaluateNodeProperty(node.inputField, node.inputFieldType, node, msg);
 
             var topic = RED.util.getMessageProperty(msg,"topic");
 

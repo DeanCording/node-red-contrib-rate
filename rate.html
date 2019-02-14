@@ -9,7 +9,7 @@
             outputField: {value: "rate"},
             outputFieldType: {value: "msg"},
             timestampField: {value: "timestamp"},
-            timestampFieldType: {value: "msg"},
+            timestampFieldType: {value: "now"},
             ratePeriod: {value: 1000}
         },
         inputs:1,
@@ -19,6 +19,9 @@
             return this.name||"rate";
         },
         oneditprepare: function() {
+        
+            var nowType = {value:"now",label:"Now",hasValue:false};
+
             if (!this.inputFieldType) {
                 this.inputFieldType = 'msg';
             }
@@ -36,11 +39,11 @@
                 typeField: $("#node-input-outputFieldType")
             });
             if (!this.timestampFieldType) {
-                this.timestampFieldType = 'msg';
+                this.timestampFieldType = 'now';
             }
             $("#node-input-timestampField").typedInput({
-                default: 'msg',
-                types: ['msg','flow','global'],
+                default: nowType,
+                types: [nowType, 'msg','flow','global'],
                 typeField: $("#node-input-timestampFieldType")
             });
         }
@@ -75,7 +78,35 @@
 
 <script type="text/x-red" data-help-name="rate">
     <p>Calculates the rate of change of a property and places the value in the specified property.</p>
+    <h3>Properties</h3>
+        <dl class="message-properties">
+            <dt>name <span class="property-type">string</span></dt>
+            <dd> the node name to display in the editor. </dd>
+            <dt>input <span class="property-type">property</span></dt>
+            <dd> the property to calcualte the rate of change of</dd>
+            <dt>rate <span class="property-type">property</span></dt>
+            <dd>the property to record the rate of change in </dd>
+            <dt>timestamp <span class="property-type">property</span></dt>
+            <dd>the property containing the timestamp of the input value.  <i>Now</i> uses the current time in milliseconds. </dd>
+            <dt>rate period <span class="property-type">integer</span></dt>
+            <dd>number of timestamp units the rate of change is calculated for.</dd>
+         </dl>
+
+    <h3>Input</h3>
+        <dl class="message-properties">
+           <dt>input property <span class="property-type">number</span></dt>
+            <dd>sample value (will convert to number)</dd>
+    <h3>Output</h3>
+        <dl class="message-properties">
+            <dt><i>rate property</i> <span class="property-type">float</span></dt>
+            <dd>the rate of change in the <i>input</i> property per <i>rate period</i></dd>
+        </dl>
+
+    <p>The contents of input messages are passed through unchanged.</p>
+
+    <h3>Details</h3>
     <p>Rates of change are calculated based on the message topic, so multiple topics can be passed
     through the node to calculate the individual rates of change for each topic.</p>
+    <p>Rate of change can be calculated using an attached timestamp or by using the current time.</p>
     <p><i>Rate Period</i> specifies the number of timestamp units the rate of change is calculated for.  For example, if the timestamp is in millseconds, <i>Rate Period</i> of 1000 would calculate the rate of change per second.</p>
 </script>
