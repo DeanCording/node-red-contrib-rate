@@ -90,19 +90,10 @@ This example measures the timestamp of the system. The result should be a consta
 Change the *Rate Period* of the rate node and examine what happens!
 
 <img src="assets/timestamp-example.png" title="Exampe 1" width="550" />
-<p>
+
+[**TimestampMeasuringFlow.json**](examples/TimestampMeasuringFlow.json)  
 
 **Fig. 5:** Timestamp measuring example
-
-<details>
-  <summary>Click to expand code snippet for the <em><b>example flow</b></em>.</summary>
-
-```javascript
-[{"id":"704bb737.12369","type":"rate","z":"e4f2d114.92c87","name":"","inputField":"payload","inputFieldType":"msg","outputField":"rate","outputFieldType":"msg","timestampField":"","timestampFieldType":"now","ratePeriod":"1000","x":610,"y":240,"wires":[["6c2fcfe1.3b1808","e7703b87.cb4c"]]},{"id":"dfb476d3.40188","type":"inject","z":"e4f2d114.92c87","name":"","topic":"","payload":"","payloadType":"date","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":430,"y":240,"wires":[["704bb737.12369"]]},{"id":"6c2fcfe1.3b1808","type":"debug","z":"e4f2d114.92c87","name":"","active":false,"tosidebar":true,"console":false,"tostatus":true,"complete":"rate","targetType":"msg","x":810,"y":240,"wires":[]},{"id":"e7703b87.cb4c","type":"debug","z":"e4f2d114.92c87","name":"","active":true,"tosidebar":true,"console":false,"tostatus":true,"complete":"true","targetType":"full","x":790,"y":180,"wires":[]}]
-```
-</details>
-<br>
-
 
 
 
@@ -110,14 +101,7 @@ Change the *Rate Period* of the rate node and examine what happens!
 ### Example 2: Measuring value changes
 
 <img src="assets/value-example.png" title="Exampe 2" width="550" />
-<p>
+
+[**ValueMeasuringFlow.json**](examples/ValueMeasuringFlow.json)  
 
 **Fig. 6:** Value measuring example
-
-<details>
-  <summary>Click to expand code snippet for the <em><b>example flow</b></em>.</summary>
-
-```javascript
-[{"id":"ff0f0e81.89655","type":"rate","z":"e4f2d114.92c87","name":"","inputField":"payload","inputFieldType":"msg","outputField":"rate","outputFieldType":"msg","timestampField":"","timestampFieldType":"now","ratePeriod":"1000","x":1610,"y":240,"wires":[["e37023d.df43c6","c4d30aec.801898"]]},{"id":"e37023d.df43c6","type":"debug","z":"e4f2d114.92c87","name":"","active":false,"tosidebar":true,"console":false,"tostatus":true,"complete":"rate","targetType":"msg","x":1830,"y":240,"wires":[]},{"id":"c4d30aec.801898","type":"debug","z":"e4f2d114.92c87","name":"","active":true,"tosidebar":true,"console":false,"tostatus":true,"complete":"true","targetType":"full","x":1810,"y":180,"wires":[]},{"id":"55b4d3d5.77305c","type":"inject","z":"e4f2d114.92c87","name":"","topic":"","payload":"-10","payloadType":"num","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":1370,"y":200,"wires":[["ff0f0e81.89655"]]},{"id":"8266cce.4d6eab","type":"inject","z":"e4f2d114.92c87","name":"","topic":"","payload":"100","payloadType":"num","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":1370,"y":240,"wires":[["ff0f0e81.89655"]]},{"id":"96da2b61.abc24","type":"inject","z":"e4f2d114.92c87","name":"","topic":"","payload":"1000","payloadType":"num","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":1370,"y":280,"wires":[["ff0f0e81.89655"]]}]
-```
-</details>
